@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+</body>
+<script>
+    class Animon {
+        constructor(name, age, say) {
+            this.name = name;
+            this.age = age;
+            this.say = say;
+        }
+    }
+    class Dog extends Animon {
+        constructor(name, age, say) {
+            super(name, age, say);
+        }
+        says(a, b, c, d) {
+            console.log(this.say, a, b, c, d);
+        }
+    }
+    class Cat extends Animon {
+        constructor(name, age, say) {
+            super(name, age, say);
+        }
+        says(a, b, c) {
+            console.log(this.say, a, b, c);
+        }
+    }
+    const cat = new Cat('miao', 15, '秒')
+    const dog = new Dog('dog', 10, 'wang')
+    cat.says.call(dog, 1, 2, 3);   //使用call的时候传递参数需要在call里面写，第一个写this的指定位置
+    dog.says.call(cat, 4, 5, 6);
+    cat.says.apply(dog, [1, 2, 3]) //当使用apply的时候，参数需要以数组的形式传递回去
+    let sa = cat.says.bind(dog, 1, 2, 3)  //当使用bind的时候，与call一样，不过需要手动调用
+
+    // let dog = {
+    //     name: 'wang',
+    //     say() {
+    //         console.log(this.name)
+    //     },
+    //     eat(food) {
+    //         console.log(this.food)
+    //     }
+    // }
+    // let cat = {
+    //     name: '秒',
+    //     say() {
+    //         console.log(this.name)
+    //     },
+    //     eat(food) {
+    //         console.log(this.food)
+    //     }
+    // }
+    // dog.say.call(cat)
+
+</script>
+
+</html>

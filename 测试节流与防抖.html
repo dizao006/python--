@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="./函数防抖.js"></script>
+<script src="./函数节流.js"></script>
+<script>
+
+    function s(arr) {
+        console.log(arr)
+    }
+    let arrs = [2, 3, 4, 5]
+    let result = devounce2(s, 200)
+    window.onresize = function () {
+        result(arrs)
+    }
+    // let result = throttle3(s, 1000, true)
+    // result()
+</script>
+
+</html>

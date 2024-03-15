@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+    }
+</style>
+
+<body>
+    <div class="s">
+        <button>dianwo</button>
+        <a href="#">dianwotiaozhuan</a>
+    </div>
+
+</body>
+<script>
+    let div = document.querySelector('div');
+    let btn = document.querySelector('button');
+    let a = document.querySelector('a');
+    // div.addEventListener('click', function () {
+    //     console.log('test')
+    // }, true)//事件冒泡
+    div.onclick = function () {
+        console.log('test')
+    }   //这样是无法实现冒泡的
+    // btn.addEventListener('click', function () {
+    //     console.log('btn')
+    // }, false)
+    btn.onclick = function () {
+        console.log('btn')
+    }
+    a.onclick = function (e) {
+        e.preventDefault();   //两种组织默认行为的方式
+        // return false
+    }
+    console.log('123')
+</script>
+
+</html>

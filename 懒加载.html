@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 200px;
+        height: 200px;
+        margin: 160px 60px;
+        display: block;
+    }
+</style>
+
+<body>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+    <p>1</p>
+
+    <img data-src="./img/1.jpg" src="">
+    <img data-src="./img/2.jpg" src="">
+    <img data-src="./img/3.jpg" src="">
+    <img data-src="./img/6.jpg" src="">
+    <img data-src="./img/5.jpg" src="">
+</body>
+<script src="./函数防抖.js"></script>
+<script>
+    let img = document.querySelectorAll('img')
+    // function s() {
+    //     img.forEach((e) => {
+    //         let top = e.getBoundingClientRect().top
+    //         if (top < window.innerHeight) {
+    //             let src = e.getAttribute('data-src')
+    //             e.setAttribute('src', src)
+    //         }
+    //     })
+    // }
+    // let lazy = devounce2(s, 500)
+    // window.onscroll = lazy
+
+    function callback() {
+        const cb = (entries) => {
+            entries.forEach((a) => {
+                if (a.isIntersecting) {
+                    const imge = a.target
+                    let src = imge.getAttribute('data-src')
+                    imge.setAttribute('src', src)
+                    observer.unobserve(imge)
+                }
+            })
+        }
+        const observer = new IntersectionObserver(cb);
+        img.forEach((e) => {
+            observer.observe(e)
+        })
+    }
+    callback()
+
+</script>
+
+</html>

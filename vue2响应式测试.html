@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <caption>
+                商品
+            </caption>
+        </thead>
+        <tbody>
+            <tr>
+                <td>炸鸡</td>
+                <td>28元</td>
+                <td><button id="zjtaiduola">-</button></td>
+                <td><span id="zjsl">0</span></td>
+                <td><button id="zjtaishaola">+</button></td>
+            </tr>
+            <tr>
+                <td>可乐</td>
+                <td>5元</td>
+                <td><button id="kltaiduola">-</button></td>
+                <td><span id="klsl">0</span></td>
+                <td><button id="kltaishaola">+</button></td>
+            </tr>
+            <tr>
+                <td>总价：</td>
+                <td><span id="total">0</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        // 补全代
+        let chickl = document.querySelector('#zjtaiduola')
+        let chickd = document.querySelector('#zjtaishaola')
+        let cocl_ = document.querySelector('#kltaiduola')
+        let cocld = document.querySelector('#kltaishaola')
+        let obj = {
+            chick: document.querySelector('#zjsl').innerHTML,
+            cocl: document.querySelector('#klsl').innerHTML
+        }
+        for (const key in obj) {
+            let v = obj[key];
+            Object.defineProperty(obj, key, {
+                get() {
+                    return v
+                },
+                set(val) {
+                    if (val !== v) {
+                        v = val
+                    }
+                    let cocls = document.querySelector('#klsl')
+                    let chicks = document.querySelector('#zjsl')
+                    let sum = document.querySelector('#total')
+                    if (Number(obj.cocl) < 0) {
+                        obj.cocl = 0
+                    }
+                    if (Number(obj.chick) < 0) {
+                        obj.chick = 0
+                    }
+                    cocls.innerHTML = Number(obj.cocl)
+                    chicks.innerHTML = Number(obj.chick)
+                    sum.innerHTML = (Number(obj.cocl) * 5) + (Number(obj.chick) * 28)
+
+                }
+            })
+        }
+
+        console.log(chickl)
+        chickl.onclick = function () {
+            obj.chick = +obj.chick - 1
+        }
+        chickd.onclick = function () {
+            obj.chick = +obj.chick + 1
+        }
+        cocl_.onclick = function () {
+            obj.cocl = +obj.cocl - 1
+        }
+        cocld.onclick = function () {
+            obj.cocl = +obj.cocl + 1
+        }
+    </script>
+</body>
+
+</html>

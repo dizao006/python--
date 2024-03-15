@@ -9,6 +9,7 @@ function mpSort(arr) {
         }
     }
     return arr
+    //测试
 }
 let result = mpSort(arr)
 console.log(result)

@@ -9,7 +9,7 @@ function throttle(callback, time = 100) {
             callback.apply(this, arg)
             timer = null
         }, time);
-    }
+    } 
 }
 // //时间戳方式
 

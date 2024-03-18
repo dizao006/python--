@@ -8,7 +8,7 @@
 // console.log(add(1)(2));
 // //2 提前确认
 // //对时间绑定进行判断
-// var on = function (isSupport, element, event, callback) {
+// var on = function (isSupport, element, ev ent, callback) { 
 //     isSupport = isSupport || document.addEventListener
 //     if (isSupport) {
 //         return element.addEventListener(event, callback, false)

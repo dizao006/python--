@@ -14,4 +14,5 @@ let {
 } = obj
 console.log(a, v)
 a = '13'
+// 测试
 console.log(a, obj)

@@ -291,18 +291,18 @@ const regions = [{
     },
 ];
 
-// function convertToTree(regions, rootId = "0") {
-//     let resArr = []
-//     regions.forEach(element => {
-//         if (element.pid == rootId) {
-//             resArr.push(element)
-//             element.children = convertToTree(regions, element.id)
-//         }
-//     });
-//     return resArr
-// }
-// let result = convertToTree(regions)
-// console.log(result)
+function convertToTree(regions, rootId = "0") {
+    let resArr = []
+    regions.forEach(element => {
+        if (element.pid == rootId) {
+            resArr.push(element)
+            element.children = convertToTree(regions, element.id)
+        }
+    });
+    return resArr
+}
+let result = convertToTree(regions)
+console.log(result)
 
 
 

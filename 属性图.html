@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script>
+        Array.prototype.uniq = function () {
+            let arr = this
+            let set = new Set(arr)
+            return [...set]
+        }
+        function s() { var a = [true, false, null, undefined, NaN, 0, 1, {}, {}, 'a', 'a', NaN].uniq(); return a.length === 10 && a[1] === false && a[0] === true && a[3] === undefined && a[2] === null && isNaN(a[4]); }
+        s()
+    </script>
 </body>
-<script src="./树形图.js"></script>
+
 </html>
